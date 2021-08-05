@@ -1,0 +1,135 @@
+{% extends 'base.html' %} {% load static %} 
+{% block title %}About{% endblock title %}
+{% block content %}
+
+
+<center>
+<div class="container  my-5">
+  <div class="card mb-3" style="max-width:660px">
+    <div class="row shadow g-0">
+      <div class="col-md-6 ">
+        <img src="{% static 'images/zaeem.jpg' %}" class="img-fluid img-thumbnail" alt="" />
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h3 class="card-title text-danger">Project Supervisor</h3>
+          <h3 class="card-title text-success">Zaeem Nazir</h3>
+          <p class="card-text h5">
+            Assistant Professor University of Narowal
+            <br><br>
+            Head of Department CS-IT
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</center>
+
+<center>
+<div class="container ">
+  <section class="text-gray-700 body-font">
+    <div class="container px-5 py-24 mx-auto" style="padding-top: 50px">
+      <div class="flex flex-col text-center w-full mb-20">
+        <h1
+          class="text-2xl font-medium title-font mb-4 text-gray-900"
+          style="color: forestgreen"
+        >
+          <strong>OUR TEAM</strong>
+        </h1>
+      
+      </div>
+
+      <div class="flex flex-wrap -m-4">
+        
+
+        <div class="p-4 lg:w-1/4 md:w-1/2 offset-1">
+          <div class="h-full flex flex-col items-center text-center">
+            <img
+              alt="team"
+              class="
+                flex-shrink-0
+                rounded-lg
+                w-full
+                h-56
+                object-cover object-center
+                mb-4
+              "
+              src="{% static 'images/qasid.jpg' %}"
+            />
+            <div class="w-full">
+              <h2 class="title-font font-medium text-lg text-gray-900">
+                Qasid Ali
+              </h2>
+              <h3 class="text-gray-500 mb-3">Team Leader</h3>
+              <p class="mb-4">
+                Student of Computer Science at <br />
+                University of Narowal <br />
+                2017-2021
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 lg:w-1/4 md:w-1/2">
+          <div class="h-full flex flex-col items-center text-center">
+            <img
+              alt="team"
+              class="
+                flex-shrink-0
+                rounded-lg
+                w-full
+                h-56
+                object-cover object-center
+                mb-4
+              "
+              src="{% static 'images/anas.jpg' %}"
+            />
+            <div class="w-full">
+              <h2 class="title-font font-medium text-lg text-gray-900">
+                Syed Anas Bukhari
+              </h2>
+              <h3 class="text-gray-500 mb-3">Team Member</h3>
+              <p class="mb-4">
+                Student of Computer Science at <br />
+                University of Narowal <br />
+                2017-2021
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 lg:w-1/4 md:w-1/2">
+          <div class="h-full flex flex-col items-center text-center">
+            <img
+              alt="team"
+              class="
+                flex-shrink-0
+                rounded-lg
+                w-full
+                h-56
+                object-cover object-center
+                mb-4
+              "
+              src="{% static 'images/hafiz.jpg' %}"
+            />
+            <div class="w-full">
+              <h2 class="title-font font-medium text-lg text-gray-900">
+                Hafiz Sikandar
+              </h2>
+              <h3 class="text-gray-500 mb-3">Team Member</h3>
+              <p class="mb-4">
+                Student of Computer Science at <br />
+                University of Narowal <br />
+                2017-2021
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</center>
+
+
+{% endblock content %}

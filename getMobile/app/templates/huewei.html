@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Huewei Mobiles{% endblock title %}
+{% block content %}
+    <section class="Prices">
+        <div class="container text-center mt-5">
+          
+        <h1>Available Mobiles</h1>
+        <div class="row gy-5">
+        {% for x in huawei %}
+          <div class="col-lg-3">
+            <div class="card">
+            
+              <a href="{% url 'specifications' x.link  %}"><img src="{{x.image}}" style="height:25% !important;" alt=""></a>
+              <div class="card-body">
+              <a href="{% url 'specifications' x.link  %}" > 
+                <h2  class = "text-primary">{{x.name}}</h2></a>
+                <p class="text-danger"> {{x.price}}</p>
+              </div>
+        
+            </div> 
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+    </section>
+{% endblock content %}
+
+

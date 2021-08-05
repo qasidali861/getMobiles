@@ -1,0 +1,52 @@
+{% extends '../base.html' %}
+{% block title %} Home {% endblock title %}
+<!-- {% block logout %}
+<a href="{% url 'log_out' %}" style="text-decoration:none" class="btn btn-outline-danger mt-1 mb-1 text-white"> LogOut</a>
+
+{% endblock logout %} -->
+{% block content %}
+<div class="container my-5 shadow p-4">
+<div> <address class=" mt-5">
+<p>
+  Well Come To {{name}}
+</p>
+</div>
+
+<h2 >Dashboard </h2>
+{%if mobile%}
+     <a href="{% url 'add_mobile' %}" style="text-decoration: none;" class="btn btn-outline-primary  mt-3 ml-2">Add Mobile </a> 
+   
+
+    
+  </div> 
+<div class="container shadow p-5 mb-5">
+  <div class="row gy-5">
+    {% for x in mobile %}
+      <div class="col-sm-4 col-lg-4">
+        
+        <div class="">
+        
+          <a href="{% url 'getid' x.id %}"><img src="{{x.photo.url}}"  height="300px" alt=""></a>
+          <div class="card-body">
+            <span>{{x.mobileName}}</span></a>
+            <small>Rs. {{x.price}}</small>
+          <br>
+            {% if perms.app.delete_mobile%}
+            <a href="{% url 'edit_mobile' x.id %}"  style="text-decoration: none;" class="btn btn-outline-warning ">Update</a> | 
+            <a href="{% url 'delete_mobile' x.id %}" style="text-decoration: none;" class="btn btn-outline-danger "> Delete</a>
+            {% endif %}
+          </div>
+    
+        </div>
+        
+      </div>
+   
+      
+
+      {%endfor%}
+      {% endif %}
+    
+    </div>
+</div>
+
+{% endblock content%}

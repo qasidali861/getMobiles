@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Blogs{% endblock title %}
+{% block content %}
+
+    <section class="Prices">
+        <div class="container text-center mt-5">
+          {%if blog %}  
+        
+
+    
+        
+        <div class="row gy-5">
+        {% for x in blog %}
+          <div class="col-lg-12p-2">
+            
+          
+            
+              <img src="{{x.photo.url}}" alt="" width="100%"></a>
+              <div class="">
+                <h2 class="text-start p-2 uppercase">{{x.title}}</h2></a>
+                <p class = "p-2 text-start"> {{x.body}}</p>
+              </div>
+        
+   
+            
+          </div>
+          {% endfor %}
+        </div>
+        {%else%}
+        <h1>No Blogs Available</h1>
+        {%endif%}
+     </div>
+        </section>   
+
+
+
+
+
+   {% endblock content %}
+
+
+

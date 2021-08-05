@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 10%;
+    background: white;
+    height: 12vh;
+    width: 100%;
+  }
+  .brand a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size:  30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .brand a:hover{
+    color: gray;
+  }
+  .navlinks{
+    list-style: none;
+  }
+  .navlinks li{
+    display: inline-block;
+    padding: 5px 20px;
+    padding-top: 17px;
+  }
+  .navlinks li a{
+    transition: alt 0.3s ease 0s;
+    text-decoration: none;
+    color:black;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .navlinks li a:hover{
+    color: gray;
+  }
+  .content{
+    background-image: url('E:\1University\8th Semester\fyp\fyp\app\static\images\baclground.jpg'); 
+    height: 100vh;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 0;
+    padding-right: 0;
+
+}
+  .content h1{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 200px;
+    text-align: center;
+    color: white;
+    font-weight: lighter ;
+    justify-content: space-around;
+    letter-spacing: 5px;
+    line-height: 60px;
+    text-shadow: rgba(0, 0,0, 0.3) , rgba(0, 0, 0, 0.1);
+  }
+  
+  /* //////////Categories/////// */
+
+
+.Categories h1{
+    margin: 60px 70px 30px 0;
+    text-align: left;
+    font-weight: normal;
+  }
+.Categories img{
+    height: 120px;
+    width: 100%;
+  }
+  .card-body{
+    height: 70px;
+  }
+.Prices img{
+  height: 250px;
+  width: 100%;
+}
+.Prices .card-body{
+  height: 80px;
+}
+.Prices .card-body h2{
+  font-weight: lighter;
+  font-size: 1.1rem;
+  color: black;
+}
+
+
+  /* ///////////Footer////// */
+  
+
+footer{
+  background-color: black;
+  height: auto;
+  width: 100vw;
+  padding-top: 40px;
+  color: #fff;
+  margin-top: 40px;
+
+}
+.footer-content h3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 3rem;
+
+}
+.footer-links{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 1rem ;
+
+
+}
+.footer-links li{
+  margin: 0 10px;
+}
+.footer-links a{
+  text-decoration: none;
+  color: #fff;
+}
+.footer-bottom{
+  background-color: rgba(182, 74, 74, 0.096);
+  width: 100vw;
+  padding: 10px 0;
+  text-align: center;
+}
+
+
+
+
+

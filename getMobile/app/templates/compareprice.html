@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+          <form action="{% url 'showprice' %}" method="GET">
+ <div class="container text-center my-5 p-5 shadow">
+      <div class="row">
+          <div class="col-sm-4">
+
+              <input type="text" placeholder="Enter the price" class="form-control"
+              
+              name="price1"
+          id="price1"
+          required >
+          
+          </div>
+           <div class="col-sm-4">
+          
+            <p><span class="display-6">T</span>O</p>
+      
+          </div>
+           <div class="col-sm-4">
+
+              <input type="text" placeholder="Enter the price" class="form-control"
+              name="price2"
+          id="price2"
+          required>
+          
+          </div>
+      
+      </div>
+      <div class="row mt-3">
+      <div class="col-sm-4 offset-sm-4">
+            <input type="submit" value="Compare" class="btn btn-success">
+      </div>
+      </div>
+ </div>
+ </form>
+ 
+
+
+{% endblock content %}

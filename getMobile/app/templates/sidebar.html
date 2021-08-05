@@ -1,0 +1,183 @@
+
+
+{% load static %}
+
+  <div class="container-fluid bg-dark">
+    <div
+      class="
+        d-flex
+        flex-wrap
+        align-items-center
+        justify-content-center justify-content-lg-start
+      "
+    >
+      <a
+        href="/"
+        class="
+          d-flex
+          align-items-center
+          mb-2 mb-lg-0
+          text-white text-decoration-none
+        "
+      >
+        <svg
+          class="bi me-2"
+          width="40"
+          height="32"
+          role="img"
+          aria-label="Bootstrap"
+        >
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+      </a>
+
+      <ul
+        class="
+          nav
+          col-12 col-lg-auto
+          me-lg-auto
+          mb-2
+          justify-content-center
+          mb-md-0
+        "
+      >
+      <li class="list-item">
+          <a href="{% url 'home' %}" class="nav-link  navbar-brand px-2 text-white"><img height = "40px" width = "70px" src = "{% static 'images/getmobile.png' %}"></a>
+        </li>
+        <li class="list-item">
+          <a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a>
+        </li>
+        <li class="list-item">
+          <a href="{% url 'blog' %}" class="nav-link px-2 text-white">Blogs</a>
+        </li>
+        <li>
+          <a
+            class="nav-link px-2 text-white"
+            data-bs-toggle="offcanvas"
+            href="#offcanvasExample"
+            aria-controls="offcanvasExample"
+          >
+            Brands
+          </a>
+        </li>
+        <li class="list-item">
+          <a href="{% url 'contactus' %}" class="nav-link px-2 text-white"
+            >Contact Us</a
+          >
+        </li>
+        <li class="list-item">
+          <a href="{% url 'about' %}" class="nav-link px-2 text-white">About</a>
+        </li>
+        
+      </ul>
+
+      <form
+        action="{% url 'search' %}" class="d-flex">
+        <input
+          name="search"
+          id="search"
+          type="search"
+          class="form-control form-control-dark"
+          placeholder="Search by Mobile Name"
+          aria-label="Search"
+        />
+        <button type="submit" class="btn btn-outline-light ">
+            Search
+          </button>
+      </form>
+      
+
+      {% comment %} <div class="text-end">
+        {%if request.user.is_authenticated%}
+        <a href="{%url 'log_out' %}">
+          <button type="button" class="btn btn-outline-light me-2">
+            LogOut
+          </button></a
+        >
+
+        <a href="{%url 'dashboard' %}">
+          <button type="button" class="btn btn-warning">Dashborad</button></a
+        >
+
+        {%else%}
+        <a href="{%url 'log_in' %}">
+          <button type="button" class="btn btn-outline-light me-2">
+            Login
+          </button></a
+        >
+
+        <a href="/admin">
+          <button type="button" class="btn btn-warning">Admin cpanel</button></a
+        >
+        {%endif%}
+      </div> {% endcomment %}
+    </div>
+  </div>
+</header>
+
+<div
+  class="offcanvas offcanvas-start"
+  tabindex="-1"
+  id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Mobile Brands</h5>
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-unstyled">
+      
+      <li class="list-item border-bottom p-2">
+        <a href="{% url 'samsung' %}">Samsung</a>
+      </li>
+      <li class="list-item border-bottom p-2">
+        <a href="{% url 'oppo' %}">Oppo</a>
+      </li>
+      <li class="list-item border-bottom p-2">
+        <a href="{% url 'vivo' %}">Vivo</a>
+      </li>
+      <li class="list-item border-bottom p-2">
+        <a href="{% url 'redmi' %}">Redmi</a>
+      </li>
+      <li class="list-item border-bottom p-2">
+        <a href="{% url 'onePlus' %}">OnePlus</a>
+      </li>
+      <li class="list-item border-bottom p-2">
+        <a href="{% url 'huewei' %}">Huewei</a>
+      </li>
+      <li class="list-item border-bottom p-2">
+        <a href="{% url 'Honor' %}">Honor</a>
+      </li>
+      <li class="list-item border-bottom p-2">
+        <a href="{% url 'Tecno' %}">Tecno</a>
+      </li>
+      <li class="list-item border-bottom p-2">
+        <a href="{% url 'Realme' %}">Realme</a>
+      </li>
+      <li class="list-item border-bottom p-2">
+        <a href="{% url 'Infinix' %}">Infinix</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <script>
+  $( function() {
+    var availableTags = [
+        {% for mobile in mbl %}
+            "{{mobile.mobileName}}",
+        {% endfor %}
+    ];
+    $( "#search" ).autocomplete({
+      source: availableTags
+    });
+    
+  } );
+  </script>
+ 

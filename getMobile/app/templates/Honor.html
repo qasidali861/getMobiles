@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Honor Mobiles{% endblock title %}
+{% block content %}
+
+
+    <section class="Prices">
+        <div class="container text-center mt-5">
+          
+        <h1>Available Mobiles</h1>
+        <div class="row gy-5">
+        {% for x in Honor %}
+          <div class="col-lg-3">
+            <div class="card">
+            
+              <a href="{% url 'specifications' x.link  %}"><img src="{{x.image}}"  alt=""></a>
+              <div class="card-body">
+              <a href="{% url 'specifications' x.link  %}" >
+                <h2  class = "text-primary">{{x.name}}</h2></a>
+                <p class="text-danger">{{x.price}}</p>
+              </div>
+
+          
+            </div> 
+          </div>
+         
+          {% endfor %}
+          
+        </div>
+      </div>
+    </section>
+
+{% comment %} 
+    <section class="Prices">
+        <div class="container text-center mt-5">
+          
+        <h1>Available Mobiles</h1>
+        <div class="row gy-2">
+        {% for x in Honor %}
+          <div class="col-lg-2 col-sm-2 shadow">
+            <div class="">
+            
+              <a href="{% url 'getid' x.id %}"><img src="{{x.image}}" style="height:25% !important;" alt=""></a>
+              <div class="card-body">
+              <a href="{% url 'getid' x.id %}" > 
+                <h2  class = "text-primary">{{x.name}}</h2></a>
+                <p class="text-danger">Rs. {{x.price}}</p>
+              </div>
+        
+            </div> 
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+    </section> {% endcomment %}
+{% endblock content %}
+

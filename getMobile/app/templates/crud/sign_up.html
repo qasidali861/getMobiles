@@ -1,0 +1,38 @@
+{% extends '../base.html' %}
+
+    {% block title %}
+        Sign Up
+    {% endblock title%}
+    {% block content %}
+    <div class="container my-5">
+        <div class="row my-5">
+            <div class="col-sm-6 offset-3 shadow">
+    <form action="" method="post"  style="margin-left: 2%; height:auto" novalidate enctype="multipart/form-data">
+   <!--  message -->
+            <span>
+                {% if messages %}
+                {% for message in messages %}
+                {% if message.tags %}
+                <span style="color:green">{{ message.tags }} </span> <span style="color:red">  {% endif %}
+                {{message}}
+            
+                <a href="{% url 'log_in' %}"> Go to login page</a></span>
+                {% endfor %}
+                {% endif %}</span>
+            <!-- end message-->
+       {% csrf_token %} 
+    {% for fm in form %}
+    <p>{{fm.label_tag}}</p>{{fm|linebreaks}}<span style='color:red;'>{{fm.errors|striptags|linebreaks}}</span>
+    {% endfor %}
+    
+    <input type="submit" value="Submit" class="btn btn-success mb-3"><span>
+        <input type="reset" value="Reset" class="btn btn-info mb-3">
+        <a href="{% url 'home' %}" style="text-decoration:none" class="btn btn-info text-white mb-3"> Cancle</a>
+
+    </span>
+    </form>
+</div>
+</div>
+</div>
+
+    {% endblock content %}

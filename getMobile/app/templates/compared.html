@@ -1,0 +1,263 @@
+{% extends 'base.html' %} {% block title %}Compare Mobiles{% endblock title %}
+{% block content %} 
+
+
+<div class="container-fluid p-5 shadow font-weight-bold">
+  <table class="table" width='1000px'>
+  <tr>
+      <td></td>
+      
+        <td> 
+          <div class="col-sm-3">
+              <center>
+                <a 
+                  ><img src="{{mbl1.image}}" width="2000" height="2000" alt=""
+                /></a>
+                <small>{{mbl1.name}}</small><br>
+              </center>
+            </div>
+        </td>
+      
+    
+        <td>
+            <div class="col-sm-3 " >
+                <center>
+                  <a 
+                    ><img src="{{mbl2.image}}" width="2000" height="2000" alt=""
+                  /></a>
+                  <small>{{mbl2.name}}</small> <br>
+                </center>
+          </div>
+        </td> 
+        <td >
+            <div class="col-sm-3">
+              <center>
+                <a 
+                  ><img src="{{mbl3.image}}" width="2000px" height="2000px" alt=""
+                /></a>
+                <small>{{mbl3.name}}</small> <br>
+              </center>
+            </div>
+        </td>
+ 
+
+ </tr>
+ 
+   <tr>
+          <td class="text-danger">Price</td>
+          {% if mbl1.price == mbl2.price and mbl2.price == mbl3.price %}
+            <td class = "h6">Rs. {{mbl1.price}} <span>&#10003;</span> </td>
+            <td class = "h6">Rs. {{mbl2.price}} <span>&#10003;</span> </td>
+            <td class = "h6">Rs. {{mbl3.price}} <span>&#10003;</span> </td>
+          {%elif mbl1.price < mbl2.price and mbl1.price < mbl3.price %}
+            <td class = "h6">Rs. {{mbl1.price}} <span>&#10003;</span> </td>
+            <td class = "h6">Rs. {{mbl2.price}}  </td>
+            <td class = "h6">Rs. {{mbl3.price}} </td>
+          {% elif mbl2.price < mbl1.price and mbl2.price < mbl3.price %}
+            <td class = "h6">Rs. {{mbl1.price}} </td>
+            <td class = "h6">Rs. {{mbl2.price}} <span>&#10003;</span> </td>
+            <td class = "h6">Rs. {{mbl3.price}} </td>
+          {% elif mbl3.price < mbl2.price and mbl3.price < mbl1.price%}
+            <td class = "h6">Rs. {{mbl1.price}} </td>
+            <td class = "h6">Rs. {{mbl2.price}} </td>
+            <td class = "h6">Rs. {{mbl3.price}} <span>&#10003;</span> </td>
+          {% elif mbl1.price == mbl2.price and mbl1.price < mbl3.price %}
+          <td class = "h6">Rs. {{mbl1.price}} <span>&#10003;</span> </td>
+          <td class = "h6">Rs. {{mbl2.price}} <span>&#10003;</span> </td>
+          <td class = "h6">Rs. {{mbl3.price}} </td>
+          {% elif mbl2.price == mbl3.price and mbl2.price < mbl2.price %}
+          <td class = "h6">Rs. {{mbl1.price}} </td>
+          <td class = "h6">Rs. {{mbl2.price}} <span>&#10003;</span> </td>
+          <td class = "h6">Rs. {{mbl3.price}} <span>&#10003;</span> </td>
+          {% elif mbl1.price == mbl3.price and mbl1.price < mbl2.price %}
+          <td class = "h6">Rs. {{mbl1.price}} <span>&#10003;</span> </td>
+          <td class = "h6">Rs. {{mbl2.price}}</td>
+          <td class = "h6">Rs. {{mbl3.price}} <span>&#10003;</span> </td>
+          {% endif %}
+    </tr> 
+    <tr class="text-start">
+      <td class="text-danger">RAM</td>
+    {%if mbl1.cRAM == mbl2.cRAM and mbl2.cRAM == mbl3.cRAM%}
+      <td class = "h6">{{mbl1.cRAM}} GB <span>&#10003;</span></td>
+      <td class = "h6">{{mbl2.cRAM}} GB <span>&#10003;</span></td>
+      <td class = "h6">{{mbl3.cRAM}} GB <span>&#10003;</span></td>
+    {%elif mbl1.cRAM > mbl2.cRAM and mbl1.cRAM > mbl3.cRAM %}
+      <td class = "h6">{{mbl1.cRAM}} GB <span>&#10003;</span></td>
+      <td class = "h6">{{mbl2.cRAM}} GB </td>
+      <td class = "h6">{{mbl3.cRAM}} GB </td>
+    {%elif mbl2.cRAM > mbl1.cRAM and mbl2.cRAM > mbl3.cRAM %}
+      <td class = "h6">{{mbl1.cRAM}} GB </td>
+      <td class = "h6">{{mbl2.cRAM}} GB <span>&#10003;</span></td>
+      <td class = "h6">{{mbl3.cRAM}} GB </td>
+    {%elif mbl3.cRAM > mbl2.cRAM and mbl3.cRAM > mbl1.cRAM%}
+      <td class = "h6">{{mbl1.cRAM}} GB </td>
+      <td class = "h6">{{mbl2.cRAM}} GB </td>
+      <td class = "h6">{{mbl3.cRAM}} GB <span>&#10003;</span></td>
+    {% elif mbl1.cRAM == mbl2.cRAM and mbl1.cRAM > mbl3.cRAM %}
+      <td class = "h6">{{mbl1.cRAM}} GB <span>&#10003;</span></td>
+      <td class = "h6">{{mbl2.cRAM}} GB <span>&#10003;</span></td>
+      <td class = "h6">{{mbl3.cRAM}} GB </td>
+    {% elif mbl2.cRAM == mbl3.cRAM and mbl2.cRAM > mbl1.cRAM %}
+      <td class = "h6">{{mbl1.cRAM}} GB</td>
+      <td class = "h6">{{mbl2.cRAM}} GB <span>&#10003;</span></td>
+      <td class = "h6">{{mbl3.cRAM}} GB <span>&#10003;</span></td>
+    {% elif mbl1.cRAM == mbl3.cRAM  and mbl1.cRAM > mbl2.cRAM%}
+      <td class = "h6">{{mbl1.cRAM}} GB <span>&#10003;</span></td>
+      <td class = "h6">{{mbl2.cRAM}} GB </td>
+      <td class = "h6">{{mbl3.cRAM}} GB <span>&#10003;</span></td>
+    {%endif%}
+    </tr>
+    <tr>
+    <td class="text-danger">OS</td>
+    {% if mbl1.OS == mbl2.OS and mbl2.OS == mbl3.OS %}
+      <td class = "h6">Android {{mbl1.OS}}<span>&#10003;</span></td>
+      <td class = "h6">Android {{mbl2.OS}}<span>&#10003;</span></td>
+      <td class = "h6">Android {{mbl3.OS}}<span>&#10003;</span></td>
+    {% elif mbl1.OS > mbl2.OS and mbl1.OS > mbl3.OSv%}
+      <td class = "h6">Android {{mbl1.OS}}<span>&#10003;</span></td>
+      <td class = "h6">Android {{mbl2.OS}}</td>
+      <td class = "h6">Android {{mbl3.OS}}</td>
+    {% elif mbl2.OS > mbl1.OS and mbl2.OS > mbl3.OS %}
+      <td class = "h6">Android {{mbl1.OS}}</td>
+      <td class = "h6">Android {{mbl2.OS}}<span>&#10003;</span></td>
+      <td class = "h6">Android {{mbl3.OS}}</td>
+    {% elif mbl3.OS > mbl1.OS and mbl3.OS > mbl2.OS %}
+      <td class = "h6">Android {{mbl1.OS}}</td>
+      <td class = "h6">Android {{mbl2.OS}}</td>      
+      <td class = "h6">Android {{mbl3.OS}}<span>&#10003;</span></td>
+    {% elif mbl1.OS == mbl2.OS and mbl1.OS > mbl3.OS %}
+      <td class = "h6">Android {{mbl1.OS}}<span>&#10003;</span></td>
+      <td class = "h6">Android {{mbl2.OS}}<span>&#10003;</span></td>
+      <td class = "h6">Android {{mbl3.OS}}</td>
+    {% elif mbl2.OS == mbl3.OS and mbl2.OS > mbl1.OS%}
+      <td class = "h6">Android {{mbl1.OS}}</td>
+      <td class = "h6">Android {{mbl2.OS}}<span>&#10003;</span></td>
+      <td class = "h6">Android {{mbl3.OS}}<span>&#10003;</span></td>
+    {% elif mbl1.OS == mbl3.OS and mbl1.OS > mbl2.OS %}
+      <td class = "h6">Android {{mbl1.OS}}<span>&#10003;</span></td>
+      <td class = "h6">Android {{mbl2.OS}}</td>
+      <td class = "h6">Android {{mbl3.OS}}<span>&#10003;</span></td>          
+    {% endif %}
+    </tr>
+    <tr>
+      <td class="text-danger">Camera</td>
+      {% if mbl1.cMainCamera == mbl2.cMainCamera and mbl2.cMainCamera == mbl3.cMainCamera %}
+        <td class = "h6"> {{mbl1.cMainCamera}} MP <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl2.cMainCamera}} MP <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl3.cMainCamera}} MP <span>&#10003;</span></td>
+      {% elif mbl1.cMainCamera > mbl2.cMainCamera and mbl1.cMainCamera > mbl3.cMainCamera %}
+      <td class = "h6"> {{mbl1.cMainCamera}} MP <span>&#10003;</span></td>
+      <td class = "h6"> {{mbl2.cMainCamera}} MP </td>
+      <td class = "h6"> {{mbl3.cMainCamera}} MP </td>
+      {% elif mbl2.cMainCamera > mbl3.cMainCamera and mbl2.cMainCamera > mbl1.cMainCamera%}
+      <td class = "h6"> {{mbl1.cMainCamera}} MP </td>
+      <td class = "h6"> {{mbl2.cMainCamera}} MP <span>&#10003;</span></td>
+      <td class = "h6"> {{mbl3.cMainCamera}} MP </td>
+      {% elif mbl3.cMainCamera > mbl2.cMainCamera and mbl3.cMainCamera > mbl1.cMainCamera %}
+      <td class = "h6"> {{mbl1.cMainCamera}} MP </td>
+      <td class = "h6"> {{mbl2.cMainCamera}} MP </td>
+      <td class = "h6"> {{mbl3.cMainCamera}} MP <span>&#10003;</span></td>
+      {% elif mbl1.cMainCamera == mbl2.cMainCamera and mbl1.cMainCamera > mbl3.cMainCamera %}
+      <td class = "h6"> {{mbl1.cMainCamera}} MP <span>&#10003;</span></td>
+      <td class = "h6"> {{mbl2.cMainCamera}} MP <span>&#10003;</span></td>
+      <td class = "h6"> {{mbl3.cMainCamera}} MP </td>
+      {% elif mbl2.cMainCamera == mbl3.cMainCamera and mbl2.cMainCamera > mbl1.cMainCamera %}
+      <td class = "h6"> {{mbl1.cMainCamera}} MP </td>
+      <td class = "h6"> {{mbl2.cMainCamera}} MP <span>&#10003;</span></td>
+      <td class = "h6"> {{mbl3.cMainCamera}} MP <span>&#10003;</span></td>
+      {% elif mbl1.cMainCamera == mbl3.cMainCamera and mbl1.cMainCamera > mbl2.cMainCamera %}
+      <td class = "h6"> {{mbl1.cMainCamera}} MP <span>&#10003;</span></td>
+      <td class = "h6"> {{mbl2.cMainCamera}} MP </td>
+      <td class = "h6"> {{mbl3.cMainCamera}} MP <span>&#10003;</span></td>
+      {% endif %}
+    </tr> 
+    <tr>
+      <td class="text-danger">Battery</td>
+      {% if mbl1.cBattery == mbl2.cBattery and mbl2.cBattery == mbl3.cBattery %}
+        <td class = "h6"> {{mbl1.cBattery}} mah <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl2.cBattery}} mah<span>&#10003;</span></td>
+        <td class = "h6"> {{mbl3.cBattery}} mah<span>&#10003;</span></td>
+      {% elif mbl1.cBattery > mbl2.cBattery and mbl1.cBattery > mbl3.cBattery %}
+        <td class = "h6"> {{mbl1.cBattery}} mah <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl2.cBattery}} mah </td>
+        <td class = "h6"> {{mbl3.cBattery}} mah </td>
+      {% elif mbl2.cBattery > mbl1.cBattery and mbl2.cBattery > mbl3.cBattery %}
+        <td class = "h6"> {{mbl1.cBattery}} mah </td>
+        <td class = "h6"> {{mbl2.cBattery}} mah <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl3.cBattery}} mah </td>
+      {% elif mbl3.cBattery > mbl1.cBattery and mbl3.cBattery > mbl2.cBattery %}
+        <td class = "h6"> {{mbl1.cBattery}} mah </td>
+        <td class = "h6"> {{mbl2.cBattery}} mah </td>
+        <td class = "h6"> {{mbl3.cBattery}} mah <span>&#10003;</span></td>
+      {% elif mbl1.cBattery == mbl2.cBattery and mbl1.cBattery > mbl3.cBattery %}
+        <td class = "h6"> {{mbl1.cBattery}} mah <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl2.cBattery}} mah<span>&#10003;</span></td>
+        <td class = "h6"> {{mbl3.cBattery}} mah </td>
+      {% elif mbl2.cBattery == mbl3.cBattery and mbl2.cBattery > mbl1.cBattery %}
+        <td class = "h6"> {{mbl1.cBattery}} mah </td>
+        <td class = "h6"> {{mbl2.cBattery}} mah <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl3.cBattery}} mah<span>&#10003;</span></td>
+      {% elif mbl1.cBattery == mbl3.cBattery and mbl1.cBattery > mbl2.cBattery %}
+        <td class = "h6"> {{mbl1.cBattery}} mah <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl2.cBattery}} mah </td>
+        <td class = "h6"> {{mbl3.cBattery}} mah<span>&#10003;</span></td>   
+      {% endif %}
+
+    </tr>
+    <tr>
+      <td class="text-danger">CPU</td>
+      {% if mbl1.cCPU == mbl2.cCPU and mbl2.cCPU == mbl3.cCPU %}
+        <td class = "h6"> {{mbl1.cCPU}} <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl2.cCPU}} <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl3.cCPU}} <span>&#10003;</span></td>
+      {% elif mbl1.cCPU == 'Octa Core' and mbl1.cCPU != mbl2.cCPU and mbl1.cCPU != mbl3.cCPU%}
+        <td class = "h6"> {{mbl1.cCPU}} <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl2.cCPU}} </td>
+        <td class = "h6"> {{mbl3.cCPU}} </td>
+      {% elif mbl2.cCPU == 'Octa Core' and mbl2.cCPU != mbl1.cCPU and mbl2.cCPU != mbl3.cCPU%}
+        <td class = "h6"> {{mbl1.cCPU}} </td>
+        <td class = "h6"> {{mbl2.cCPU}} <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl3.cCPU}} </td>
+      {% elif mbl3.cCPU == 'Octa Core' and mbl3.cCPU != mbl1.cCPU and mbl3.cCPU != mbl2.cCPU%}
+        <td class = "h6"> {{mbl1.cCPU}} </td>
+        <td class = "h6"> {{mbl2.cCPU}} </td>
+        <td class = "h6"> {{mbl3.cCPU}} <span>&#10003;</span></td>
+      {% elif mbl3.cCPU == 'Octa Core' and mbl3.cCPU == mbl1.cCPU and mbl3.cCPU != mbl2.cCPU%}
+        <td class = "h6"> {{mbl1.cCPU}} <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl2.cCPU}} </td>
+        <td class = "h6"> {{mbl3.cCPU}} <span>&#10003;</span></td>
+      {% elif mbl2.cCPU == 'Octa Core' and mbl2.cCPU == mbl1.cCPU and mbl2.cCPU != mbl3.cCPU%}
+        <td class = "h6"> {{mbl1.cCPU}} <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl2.cCPU}} <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl3.cCPU}} </td>
+      {% elif mbl1.cCPU == 'Octa Core' and mbl2.cCPU == mbl3.cCPU and mbl2.cCPU != mbl1.cCPU%}
+        <td class = "h6"> {{mbl1.cCPU}} </td>
+        <td class = "h6"> {{mbl2.cCPU}} <span>&#10003;</span></td>
+        <td class = "h6"> {{mbl3.cCPU}} <span>&#10003;</span></td>      
+      {% endif %}
+      
+    </tr>
+  </table>
+</div>
+
+
+<div class="container my-5 ">
+    <div class="row">
+       <div class="col-sm-4 ">
+          <a href="{% url 'specifications' bestMobile.link  %}"><img src="{{bestMobile.image}}" alt=""></a>
+            <div class="card-body"></a>
+               <a href="{% url 'specifications' bestMobile.link  %}"><h2>{{bestMobile.name}}</h2></a>
+                <p class = "text-danger font-weight-bold">Rs. {{bestMobile.price}}</p>
+              </div>
+            
+        </div>
+        <div class=" col-sm-4">
+        <p class="display-3"> <b>{{bestMobile.name}}</b>  Is Best For You</p>
+        </div> 
+             
+   </div>
+
+</div> 
+
+
+{% endblock content %}

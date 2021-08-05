@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% block content %}
+
+<form action="{% url 'compared' %}" method="GET">
+  <div class="container my-5 p-5 shadow">
+    <div class="row">
+     
+      <div class="col-sm-3">
+        <center>
+        <input
+          type="search"
+          class="form-control"
+          name="mobile1"
+          id="mobile1"
+          required
+          placeholder="Search by name"  />
+          </center>
+      </div>
+      
+      <div class="col-sm-1 text-center font-weight-bold">
+        <p><span class="display-6">V</span>S</p>
+      </div>
+
+      <div class="col-sm-3">
+        <input
+          type="search"
+          class="form-control"  id="mobile2" name="mobile2"
+          placeholder="Search by name" required
+        />
+      
+
+
+      </div>
+
+      <div class="col-sm-1 text-center font-weight-bold">
+        <p><span class="display-6">V</span>S</p>
+      </div>
+
+      <div class="col-sm-3">
+        <input
+          type="search"
+          class="form-control"  id="mobile3" name="mobile3"
+          placeholder="Search by name" required
+        />
+      
+
+
+      </div>
+      
+
+      <div class="row">
+      <div class="col-sm-4 offset-4 text-center">
+      <button type="submit" class=" btn btn-success">Compare</button>
+
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+{% comment %} <script>
+$( document ).ready(function() {
+    $("#mobile1").on("input", function() {
+        
+    });
+    
+  });
+</script> {% endcomment %}
+
+
+
+<script>
+  $( function() {
+    var availableTags = [
+        {% for mobile in mobiles %}
+            "{{mobile.name}}",
+        {% endfor %}
+    ];
+    $( "#mobile1" ).autocomplete({
+      source: availableTags
+    });
+    $( "#mobile2" ).autocomplete({
+      source: availableTags
+    });
+      $( "#mobile3" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+{% endblock content %}

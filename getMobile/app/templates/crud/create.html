@@ -1,0 +1,45 @@
+{%extends '../base.html'%}
+
+
+    {% block title%}Add Mobile{% endblock %}
+    {% block content %}
+<h3 class="alert alert-info bg-info text-center mt-3" >Add Mobile</h3>
+    <!--message-->
+    {% if messages %}
+{% for message in messages %}
+{% if message.tags %}
+<span style="color:green; font-size:30px">{{ message.tags }} :</span> 
+{% endif %}
+<span style="color:red; ">{{message}}</span>
+    <a href="{% url 'dashboard' %}" >Go to dashboard</a>
+{% endfor %}
+{% endif %}
+    <!--end message-->
+<div class="container my-3">
+   
+        <form action="" method="POST"   enctype="multipart/form-data" novalidate>
+
+            {% csrf_token %}
+            <div class="row">
+                {%for fm in form%}
+                <div class="form-group col-md-4">
+                 
+                  <label>{{fm.label_tag}}</label>
+                  {{fm|linebreaks}}
+                  {{fm.errors|striptags|linebreaks}}</span>
+              
+                  </div>
+                  {%endfor%}
+              </div>
+            
+            <input type="submit" value="Submit" class="btn btn-success ml-2">
+            <a href="{% url 'dashboard' %}" style="text-decoration:none" class="btn btn-info text-white"> Cancle</a>
+        
+        </form>
+</div>
+
+
+
+
+
+{%endblock content%}

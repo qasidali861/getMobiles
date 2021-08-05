@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+        
+{% block content %}
+
+
+
+
+<div class="container my-5 ">
+    <div class="row">
+       <div class="col-sm-4 ">
+          <a href="{% url 'specifications' bestMobile.link  %}"><img src="{{bestMobile.image}}" alt=""></a>
+            <div class="card-body"></a>
+               <a href="{% url 'specifications' bestMobile.link  %}"><h2>{{bestMobile.name}}</h2></a>
+                <p class = "text-danger font-weight-bold">Rs. {{bestMobile.price}}</p>
+              </div>
+            
+        </div>
+        <div class=" col-sm-4">
+        <p class="display-3"> <b>{{bestMobile.mobileName}}</b>  Is Best For You</p>
+        </div> 
+             
+   </div>
+
+</div> 
+
+ <section class="Prices">
+        <div class="container text-center mt-5">
+        
+        <div class="row gy-5">
+        {% for x in mobiles %}
+          <div class="col-lg-3">
+            
+            <div class="card">
+              <a href="{% url 'specifications' x.link  %}">        
+                  <img src="{{x.image}}" alt=""> </a>
+              <div class="card-body">
+               <a href="{% url 'specifications' x.link  %}"> <h2 class="text-primary">{{x.name}}</h2></a>
+                <p class="text-danger">Rs. {{x.price}}</p>
+              </div>
+        
+            </div>
+            
+          </div>
+          {% endfor %}
+        </div>
+   </div>
+</section>
+
+{% endblock content %}

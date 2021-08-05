@@ -1,0 +1,32 @@
+
+{% load static %}
+<section class="Categories">
+  <div class="container">
+    <h1>Browse By Popular Brand</h1>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="border">
+          <a href="{% url 'vivo' %}"
+            ><img src= " {% static 'images/vivo.png'%}" height="30%" width="30%"  alt=""
+          /></a>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="border">
+          <a href="{% url 'samsung' %}"><img src= " {% static 'images/samsung.png'%}" height="30%" width="30%" alt="" /></a>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="border">
+          <a href="{% url 'oppo' %}"><img src= " {% static 'images/oppo.png'%}" height="30%" width="30%" alt="" /></a>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="border">
+          <a href="{% url 'redmi' %}"><img src= " {% static 'images/redmi.jpg'%}" height="30%" width="30%" alt="" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

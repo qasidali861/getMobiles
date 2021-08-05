@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 10%;
+    background: white;
+    height: 12vh;
+    width: 100%;
+    border-bottom: 1px black solid;
+  }
+  .brand a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size:  30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .brand a:hover{
+    color: gray;
+  }
+  .navlinks{
+    list-style: none;
+  }
+  .navlinks li{
+    display: inline-block;
+    padding: 5px 20px;
+    padding-top: 17px;
+  }
+  .navlinks li a{
+    transition: alt 0.3s ease 0s;
+    text-decoration: none;
+    color:black;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .navlinks li a:hover{
+    color: gray;
+  }
+
+.bg-img{
+  background-image:url('E:\1University\8th Semester\fyp\fyp\app\static\images\background.jpg')
+}
+

@@ -1,0 +1,56 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block content %}
+    <section class="Prices">
+        <div class="container text-center mt-5">
+        
+        
+        <h1>Available Mobiles</h1>
+        <div class="container text-center">
+{%if searchMbl|length < 1 %}
+<p>No Search Result for query <b>{{query}}</b></p>
+<h4><b> Suggestions: </b></h4><br>
+<ul>
+<li><a href="#" class="nav-link text-white"> </a>Try Different Mobile Name</li>
+</ul>
+{%endif%}
+</div>
+        
+        <div class="row gy-5">
+        {% for x in searchMbl %}
+          <div class="col-lg-3">
+            
+            <div class="card">
+            
+              <a href="{% url 'specifications' x.link  %}"><img src="{{x.image}}" alt=""></a>
+              <div class="card-body">
+                <h2>{{x.name}}</h2></a>
+                <p>Rs. {{x.price}}</p>
+              </div>
+        
+            </div>
+            
+          </div>
+          {% endfor %}
+        </div>
+
+</div>
+           <script>
+  $( function() {
+    var availableTags = [
+        {% for mobile in mbl %}
+            "{{mobile.name}}",
+        {% endfor %}
+    ];
+    $( "#search" ).autocomplete({
+      source: availableTags
+    });
+    
+  } );
+  </script>
+
+   {% endblock content %}
+
+
+   
+    

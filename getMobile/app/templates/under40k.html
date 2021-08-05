@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <section class="Prices">
+        <div class="container text-center mt-5">
+        
+        
+        <h1>Available Mobiles</h1>
+        
+        
+        <div class="row gy-5">
+        {% for x in under40k %}
+          <div class="col-lg-3">
+            
+            <div class="card">
+            
+              <a href="{% url 'specifications' x.link  %}"><img src="{{x.image}}" alt=""></a>
+              <div class="card-body"></a>
+
+               <a href="{% url 'specifications' x.link  %}"> <h2>{{x.name}}</h2></a>
+                <p>Rs. {{x.price}}</p>
+              </div>
+        
+            </div>
+            
+          </div>
+          {% endfor %}
+        </div>
+</div>
+        </section>
+   {% endblock content %}
+
+
